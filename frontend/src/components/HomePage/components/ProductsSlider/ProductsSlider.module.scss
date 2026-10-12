@@ -1,0 +1,58 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.products {
+    &Top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+
+    &Title {
+        max-width: 136px;
+
+        @include on-tablet {
+            max-width: 100%;
+        }
+    }
+
+    &Buttons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &ArrowBtn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+    }
+
+    &Wrapper {
+        overflow-y: hidden;
+
+        display: flex;
+        gap: 16px;
+
+        overflow-x: auto;
+
+        padding-left: max(16px, calc(100vw - $container-max) / 2);
+
+        scroll-padding-left: max(16px, calc(100vw - $container-max) / 2);
+
+        @include on-tablet {
+            padding-left: 24px;
+        }
+
+        @include on-desktop {
+            overflow-x: hidden;
+
+            width: 100%;
+            max-width: calc(#{$container-max} - 64px);
+            margin: 0 auto;
+            padding: 0;
+            scroll-padding: 0;
+        }
+    }
+}

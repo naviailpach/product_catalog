@@ -1,0 +1,72 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.products {
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    &Wrapper {
+        padding-left: 16px;
+
+        @include on-tablet {
+            padding-left: 24px;
+        }
+
+        @include on-desktop {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-inline: 32px;
+        }
+    }
+
+    &Top {
+        margin-bottom: 24px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &Title {
+        width: 136px;
+        height: 52px;
+
+        @include on-tablet {
+            width: 400px;
+            height: 31px;
+        }
+
+        @include on-desktop {
+            width: 400px;
+        }
+    }
+
+    &Buttons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-right: 16px;
+
+        @include on-tablet {
+            padding-right: 24px;
+        }
+
+        @include on-desktop {
+            padding-right: 0;
+        }
+    }
+
+    &Btn {
+        border-radius: 50%;
+    }
+
+    &Cards {
+        display: flex;
+        gap: 16px;
+
+        overflow-x: auto;
+    }
+}

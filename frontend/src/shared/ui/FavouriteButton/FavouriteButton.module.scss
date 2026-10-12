@@ -1,0 +1,26 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.favouriteBtn {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: 1px solid #b4bdc3;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: border-color $effectDuration ease;
+
+    &:hover {
+        border-color: var(--primary);
+    }
+}
+
+.favouriteIcon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}

@@ -1,0 +1,38 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.arrowBtn {
+    width: 32px;
+    border: 1px solid #b4bdc3;
+    background-color: var(--background);
+
+    transition:
+        border-color $effectDuration ease,
+        background-color $effectDuration ease;
+
+    &:hover {
+        border-color: var(--primary);
+        background-color: var(--white);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        border-color: #e2e6e9;
+
+        .arrowBtnImg {
+            color: #b4bdc3;
+        }
+    }
+
+    &Img {
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin: 0 auto;
+        color: var(--primary);
+    }
+
+    &ImgLeft {
+        transform: rotate(-180deg);
+    }
+}

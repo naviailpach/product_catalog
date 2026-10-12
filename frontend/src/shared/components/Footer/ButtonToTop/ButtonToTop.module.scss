@@ -1,0 +1,26 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.buttonToTop {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #b4bdc3;
+    border-radius: 50%;
+
+    // background-color: var(--arrow-button-bg);
+    transition: border-color $effectDuration ease;
+
+    &:hover {
+        border-color: var(--primary);
+    }
+
+    &Icon {
+        width: 16px;
+        height: 16px;
+        display: block;
+        margin: 0 auto;
+        color: var(--primary);
+
+        transform: rotate(-90deg);
+    }
+}
