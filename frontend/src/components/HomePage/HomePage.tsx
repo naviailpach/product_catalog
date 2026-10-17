@@ -12,7 +12,9 @@ import { Reveal } from "../../shared/ui/Reveal";
 import { ErrorMessage } from "../../shared/ui/ErrorMessage";
 
 export const HomePage: React.FC = () => {
-    const { isLoading, hasError } = useAppSelector((state) => state.products);
+    const { items, isLoading, hasError } = useAppSelector(
+        (state) => state.products,
+    );
 
     const newestProducts = useAppSelector(selectNewestProducts);
     const hotPrices = useAppSelector(selectDiscountedProducts);
@@ -25,11 +27,13 @@ export const HomePage: React.FC = () => {
 
             {isLoading && <SliderSkeleton />}
 
-            {hasError ? (
+            {hasError && (
                 <Container>
                     <ErrorMessage />
                 </Container>
-            ) : (
+            )}
+
+            {!isLoading && !hasError && (
                 <Reveal>
                     <ProductsSlider
                         title="Brand new models"
@@ -41,17 +45,19 @@ export const HomePage: React.FC = () => {
 
             <Reveal>
                 <Container>
-                    <Categories />
+                    <Categories products={items} />
                 </Container>
             </Reveal>
 
             {isLoading && <SliderSkeleton />}
 
-            {hasError ? (
+            {hasError && (
                 <Container>
                     <ErrorMessage />
                 </Container>
-            ) : (
+            )}
+
+            {!isLoading && !hasError && (
                 <Reveal>
                     <ProductsSlider
                         title="Hot Prices"

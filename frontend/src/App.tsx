@@ -13,7 +13,7 @@ import { useAppDispatch } from "./app/hooks";
 import { fetchProducts } from "./features/products";
 
 export const App = () => {
-    const { isMenuOpen, setIsMenuOpen } = useMobileMenu();
+    const { isMenuOpen, setIsMenuOpen, closeMenu } = useMobileMenu();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export const App = () => {
         <>
             <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
-            <MobileMenu isMenuOpen={isMenuOpen} />
+            <MobileMenu isMenuOpen={isMenuOpen} closeMenu={closeMenu} />
 
             <Main>
                 <Outlet />

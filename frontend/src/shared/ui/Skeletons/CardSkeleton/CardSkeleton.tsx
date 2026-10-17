@@ -4,10 +4,15 @@ import Skeleton from "react-loading-skeleton";
 import styles from "./CardSkeleton.module.scss";
 import ImgSkeleton from "@assets/images/icons/img-skeleton.svg?react";
 import { SkeletonFadeIn } from "../../SkeletonFadeIn";
+import classNames from "classnames";
 
-export const CardSkeleton: React.FC = () => (
+type Props = {
+    className?: string;
+};
+
+export const CardSkeleton: React.FC<Props> = ({ className }) => (
     <SkeletonFadeIn>
-        <div className={styles.card}>
+        <div className={classNames(styles.card, className)}>
             <div className={styles.cardImgWrapper}>
                 <Skeleton className={styles.cardImage} />
 

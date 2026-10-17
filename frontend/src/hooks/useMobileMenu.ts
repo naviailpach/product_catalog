@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 export const useMobileMenu = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     useEffect(() => {
         document.documentElement.style.overflow = isMenuOpen ? "hidden" : "";
 
@@ -11,5 +15,5 @@ export const useMobileMenu = () => {
         };
     }, [isMenuOpen]);
 
-    return { isMenuOpen, setIsMenuOpen };
+    return { isMenuOpen, setIsMenuOpen, closeMenu };
 };
