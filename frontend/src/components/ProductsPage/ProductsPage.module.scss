@@ -1,0 +1,57 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.productsPage {
+    @include page-grid;
+
+    &Top {
+        grid-column: 1 / -1;
+    }
+
+    &FilterSort {
+        grid-column: span 2;
+
+        @include on-tablet {
+            grid-column: span 4;
+        }
+    }
+
+    &FilterItemsOnPage {
+        grid-column: 3 / -1;
+
+        @include on-tablet {
+            grid-column: 5 / 8;
+        }
+    }
+
+    &List {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+        column-gap: 16px;
+        padding-top: 24px;
+
+        @include on-tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include on-desktop {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &Card {
+        width: 100%;
+    }
+
+    &Pagination {
+        grid-column: 1 / -1;
+        justify-items: center;
+        margin-top: 24px;
+
+        @include on-tablet {
+            margin-top: 40px;
+        }
+    }
+}

@@ -9,15 +9,16 @@ import Cart from "@assets/images/icons/shopping-cart.svg?react";
 
 type Props = {
     isMenuOpen: boolean;
+    closeMenu: () => void;
 };
 
-export const MobileMenu: React.FC<Props> = ({ isMenuOpen }) => (
+export const MobileMenu: React.FC<Props> = ({ isMenuOpen, closeMenu }) => (
     <div
         className={classNames(styles.menu, {
             [styles.menuOpen]: isMenuOpen,
         })}
     >
-        <Nav isMobile />
+        <Nav isMobile onNavigate={closeMenu} />
 
         <div className={styles.menuFooter}>
             <HeaderAction isMobile to="/favourites" Icon={Favourite} />

@@ -15,9 +15,8 @@ export const Reveal: React.FC<Props> = ({ children, delay = 0, className }) => {
 
     return (
         <div
-            className={classNames(styles.reveal, {
+            className={classNames(styles.reveal, className, {
                 [styles.visible]: inView,
-                className,
             })}
             ref={ref}
             style={{ transitionDelay: `${delay}ms` }}

@@ -2,25 +2,32 @@ import phonesImg from "../../../../../assets/images/categories/phones.png";
 import tabletsImg from "../../../../../assets/images/categories/tablets.png";
 import accessoriesImg from "../../../../../assets/images/categories/accessories.png";
 
-export const CATEGORIES_CARDS = [
+export interface CategoryItem {
+    title: string;
+    image: string;
+    category: string;
+    link: string;
+}
+
+export const CATEGORIES_CARDS: CategoryItem[] = [
     {
         title: "Mobile phones",
-        count: 95,
         image: phonesImg,
+        category: "phones",
         link: "/phones",
     },
 
     {
         title: "Tablets",
-        count: 24,
         image: tabletsImg,
+        category: "tablets",
         link: "/tablets",
     },
 
     {
         title: "Accessories",
-        count: 100,
         image: accessoriesImg,
+        category: "accessories",
         link: "/accessories",
     },
 ];

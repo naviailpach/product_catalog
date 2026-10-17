@@ -3,33 +3,31 @@ import { Link } from "react-router-dom";
 
 import styles from "./CategoryCard.module.scss";
 import { Typography } from "../../../../../shared/ui/Typography";
+import type { CategoryItem } from "../constants/categoriesCards";
 
 type Props = {
-    title: string;
+    card: CategoryItem;
     count: number;
-    image: string;
-    link: string;
 };
 
-export const CategoryCard: React.FC<Props> = ({
-    title,
-    count,
-    image,
-    link,
-}) => {
+export const CategoryCard: React.FC<Props> = ({ card, count }) => {
     return (
         <article className={styles.category}>
-            <Link to={link} className={styles.categoryImgWrapper}>
-                <img src={image} alt={title} className={styles.categoryImg} />
+            <Link to={card.link} className={styles.categoryImgWrapper}>
+                <img
+                    src={card.image}
+                    alt={card.title}
+                    className={styles.categoryImg}
+                />
             </Link>
 
-            <Link to={link} className={styles.categoryTitleWrapper}>
+            <Link to={card.link} className={styles.categoryTitleWrapper}>
                 <Typography variant="h4" className={styles.categoryTitle}>
-                    {title}
+                    {card.title}
                 </Typography>
             </Link>
 
-            <p className={styles.categoryCount}>{count} models</p>
+            <p className={styles.categoryCount}>{`${count} models`}</p>
         </article>
     );
 };

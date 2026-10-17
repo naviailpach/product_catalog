@@ -1,5 +1,6 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import styles from "./ProductCard.module.scss";
 import { Typography } from "../Typography";
@@ -13,9 +14,14 @@ import { API_URL } from "../../utils/config";
 type Props = {
     product: Product;
     showOldPrice?: boolean;
+    className?: string;
 };
 
-export const ProductCard: React.FC<Props> = ({ product, showOldPrice }) => {
+export const ProductCard: React.FC<Props> = ({
+    product,
+    showOldPrice,
+    className,
+}) => {
     const PRODUCT_SPECS = [
         {
             name: "Screen",
@@ -34,7 +40,7 @@ export const ProductCard: React.FC<Props> = ({ product, showOldPrice }) => {
     ];
 
     return (
-        <article className={styles.card}>
+        <article className={classNames(styles.card, className)}>
             <Link to={`/`} className={styles.cardImgWrapper}>
                 <img
                     src={`${API_URL}${product.image}`}

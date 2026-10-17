@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { SLIDERS } from "../../constants/sliders";
 import { ArrowBtn } from "../../../../shared/components/ArrowBtn";
 import { useSlider } from "../../../../hooks/useSlider";
+import { Link } from "react-router-dom";
 
 const SWIPE_THRESHOLD = 50;
 const AUTOPLAY_DELAY = 5000;
@@ -67,7 +68,11 @@ export const PicturesSlider: React.FC = () => {
                             }}
                         >
                             {SLIDERS.map((slide) => (
-                                <div key={slide.id} className={styles.slide}>
+                                <Link
+                                    to={"/phones"}
+                                    key={slide.id}
+                                    className={styles.slide}
+                                >
                                     <picture>
                                         <source
                                             media="(min-width: 640px)"
@@ -80,7 +85,7 @@ export const PicturesSlider: React.FC = () => {
                                             className={styles.slideImage}
                                         />
                                     </picture>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
