@@ -62,7 +62,7 @@ export const HomePage: React.FC = () => {
                     <ProductsSlider
                         title="Hot Prices"
                         products={hotPrices}
-                        showOldPrice={true}
+                        showOldPrice
                     />
                 </Reveal>
             )}

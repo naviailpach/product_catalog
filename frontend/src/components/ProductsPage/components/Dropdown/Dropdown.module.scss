@@ -86,24 +86,18 @@
     @keyframes dropdown-open {
         from {
             opacity: 0;
-            transform: translateY(-8px) scaleY(0.9);
         }
-
         to {
             opacity: 1;
-            transform: translateY(0) scaleY(1);
         }
     }
 
     @keyframes dropdown-close {
         from {
             opacity: 1;
-            transform: translateY(0) scaleY(1);
         }
-
         to {
             opacity: 0;
-            transform: translateY(-8px) scaleY(0.9);
         }
     }
 

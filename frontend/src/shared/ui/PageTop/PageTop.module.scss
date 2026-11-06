@@ -41,17 +41,62 @@
         }
     }
 
+    &NameLink {
+        font-size: 12px;
+        line-height: 1;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     &Name {
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
         font-size: 12px;
         line-height: 1;
         font-weight: 600;
         color: var(--secondary);
+    }
 
-        // min-width: 0;
+    &IconBack {
+        display: block;
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: var(--primary);
 
-        // overflow: hidden;
-        // white-space: nowrap;
-        // text-overflow: ellipsis;
+        transition: color $effectDuration ease;
+
+        transform: rotate(180deg);
+    }
+
+    &BackNav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 16px;
+
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--secondary);
+
+        transition: color $effectDuration ease;
+
+        &:hover {
+            color: var(--primary);
+
+            // .pageTopIconBack {
+            //     color: var(--back-link-color-hover);
+            // }
+        }
     }
 
     &Count {

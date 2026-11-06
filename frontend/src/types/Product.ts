@@ -1,9 +1,11 @@
+import type { Category } from "../shared/constants/categoryConfig";
+
 export type Product = {
     id: number;
-    category: string;
+    category: Category;
     itemId: string;
     name: string;
-    full_price: number;
+    fullPrice: number;
     price: number;
     screen: string;
     capacity: string;
