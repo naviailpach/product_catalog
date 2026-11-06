@@ -1,0 +1,74 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.productDetails {
+    @include page-grid;
+
+    row-gap: 56px;
+
+    @include on-tablet {
+        row-gap: 64px;
+    }
+
+    @include on-desktop {
+        position: relative;
+    }
+
+    &Gallery {
+        grid-column: 1 / -1;
+
+        @include on-tablet {
+            grid-column: 1 / 8;
+        }
+
+        @include on-desktop {
+            grid-column: 1 / 13;
+        }
+    }
+
+    &Controlls {
+        position: relative;
+
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @include on-tablet {
+            grid-column: 8 / -1;
+        }
+
+        @include on-desktop {
+            position: static;
+            grid-column: 14 / 21;
+        }
+    }
+
+    &Id {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+        color: #b4bdc3;
+    }
+
+    &Description {
+        grid-column: 1 / -1;
+
+        @include on-desktop {
+            grid-column: span 12;
+        }
+    }
+
+    &Specs {
+        grid-column: 1 / -1;
+
+        @include on-desktop {
+            grid-column: 14 / -1;
+        }
+    }
+}

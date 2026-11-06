@@ -1,0 +1,42 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.priceActions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.prices {
+    display: flex;
+    gap: 8px;
+
+    &Discount {
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 1.4;
+    }
+
+    &Old {
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1;
+        color: var(--secondary);
+        text-decoration: line-through;
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &ToCart {
+        height: 48px;
+    }
+
+    &ToFavourite {
+        width: 48px;
+        height: 48px;
+    }
+}

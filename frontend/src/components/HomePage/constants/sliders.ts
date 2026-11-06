@@ -1,12 +1,12 @@
-import imageSlideMob1 from "../../../assets/images/sliderMobile/slide-mob-1.png";
-import imageSlideMob2 from "../../../assets/images/sliderMobile/slide-mob-2.png";
-import imageSlideMob3 from "../../../assets/images/sliderMobile/slide-mob-3.png";
-import imageSlideMob4 from "../../../assets/images/sliderMobile/slide-mob-4.png";
+import imageSlideMob1 from "../../../assets/images/sliderMobile/slide-mob-1.jpeg";
+import imageSlideMob2 from "../../../assets/images/sliderMobile/slide-mob-2.jpeg";
+import imageSlideMob3 from "../../../assets/images/sliderMobile/slide-mob-3.jpeg";
+import imageSlideMob4 from "../../../assets/images/sliderMobile/slide-mob-4.jpeg";
 
-import imageSlideDesk1 from "../../../assets/images/sliderDesktop/slide-desktop-1.png";
-import imageSlideDesk2 from "../../../assets/images/sliderDesktop/slide-desktop-2.png";
-import imageSlideDesk3 from "../../../assets/images/sliderDesktop/slide-desktop-3.png";
-import imageSlideDesk4 from "../../../assets/images/sliderDesktop/slide-desktop-4.png";
+import imageSlideDesk1 from "../../../assets/images/sliderDesktop/slide-desktop-1.jpeg";
+import imageSlideDesk2 from "../../../assets/images/sliderDesktop/slide-desktop-2.jpeg";
+import imageSlideDesk3 from "../../../assets/images/sliderDesktop/slide-desktop-3.jpeg";
+import imageSlideDesk4 from "../../../assets/images/sliderDesktop/slide-desktop-4.jpeg";
 
 export const SLIDERS = [
     {

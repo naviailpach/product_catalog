@@ -1,0 +1,34 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.specs {
+    display: flex;
+    flex-direction: column;
+
+    &TitleTop {
+        margin-bottom: 16px;
+    }
+
+    &Wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    &Row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &Title {
+        line-height: 1;
+        color: var(--secondary);
+    }
+
+    &Value {
+        line-height: 1;
+        color: var(--primary);
+    }
+}

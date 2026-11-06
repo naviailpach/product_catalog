@@ -1,0 +1,51 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.capacity {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &Title {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--secondary);
+    }
+
+    &List {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &Option {
+        padding: 0.5em 0.65em;
+        border: 1px solid #b4bdc3;
+        border-radius: 4px;
+
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+
+        background-color: var(--white);
+
+        transition:
+            background-color $effectDuration ease,
+            color $effectDuration ease,
+            border-color $effectDuration ease;
+
+        &:hover {
+            border-color: transparent;
+            color: var(--white);
+            background-color: var(--primary);
+        }
+    }
+
+    &Active {
+        border-color: transparent;
+        color: var(--white);
+        background-color: var(--primary);
+    }
+}

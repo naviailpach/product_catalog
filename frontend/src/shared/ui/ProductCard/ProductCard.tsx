@@ -10,6 +10,7 @@ import { FavouriteButton } from "../FavouriteButton";
 
 import type { Product } from "../../../types/Product";
 import { API_URL } from "../../utils/config";
+import { getSpecsCard } from "./constants/productSpecs";
 
 type Props = {
     product: Product;
@@ -22,26 +23,14 @@ export const ProductCard: React.FC<Props> = ({
     showOldPrice,
     className,
 }) => {
-    const PRODUCT_SPECS = [
-        {
-            name: "Screen",
-            value: product.screen,
-        },
-
-        {
-            name: "Capacity",
-            value: product.capacity,
-        },
-
-        {
-            name: "RAM",
-            value: product.ram,
-        },
-    ];
+    const PRODUCT_SPECS = getSpecsCard(product);
 
     return (
         <article className={classNames(styles.card, className)}>
-            <Link to={`/`} className={styles.cardImgWrapper}>
+            <Link
+                to={`/product/${product.itemId}`}
+                className={styles.cardImgWrapper}
+            >
                 <img
                     src={`${API_URL}${product.image}`}
                     alt={product.name}
@@ -49,7 +38,10 @@ export const ProductCard: React.FC<Props> = ({
                 />
             </Link>
 
-            <Link to={`/`} className={styles.cardTitle}>
+            <Link
+                to={`/product/${product.itemId}`}
+                className={styles.cardTitle}
+            >
                 {product.name}
             </Link>
 
@@ -60,7 +52,7 @@ export const ProductCard: React.FC<Props> = ({
 
                 {showOldPrice && (
                     <span className={styles.cardOldPrice}>
-                        ${product.full_price}
+                        ${product.fullPrice}
                     </span>
                 )}
             </div>
@@ -69,8 +61,13 @@ export const ProductCard: React.FC<Props> = ({
 
             <div className={styles.cardInfo}>
                 {PRODUCT_SPECS.map((spec) => (
-                    <div key={spec.name} className={styles.cardInfoRow}>
-                        <div className={styles.cardInfoName}>{spec.name}</div>
+                    <div
+                        key={spec.translationKey}
+                        className={styles.cardInfoRow}
+                    >
+                        <div className={styles.cardInfoName}>
+                            {spec.translationKey}
+                        </div>
                         <div className={styles.cardInfoValue}>{spec.value}</div>
                     </div>
                 ))}

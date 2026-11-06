@@ -8,11 +8,14 @@ import { PhonesPage } from "./components/PhonesPage";
 import { TabletsPage } from "./components/TabletsPage";
 import { AccessoriesPage } from "./components/AccessoriesPage";
 import { NotFoundPage } from "./components/NotFoundPage";
+import { ProductDetailsPage } from "./components/ProductDetailsPage";
+import { ScrollToTop } from "./shared/components/ScrollToTop";
 
 export const Root = () => (
     <Provider store={store}>
         <HashRouter>
             <SkeletonProvider>
+                <ScrollToTop />
                 <Routes>
                     <Route path="/" element={<App />}>
                         <Route index element={<HomePage />} />
@@ -21,6 +24,10 @@ export const Root = () => (
                         <Route
                             path="accessories"
                             element={<AccessoriesPage />}
+                        />
+                        <Route
+                            path="product/:itemId"
+                            element={<ProductDetailsPage />}
                         />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>

@@ -1,5 +1,5 @@
 import type React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { Fragment } from "react";
 
@@ -26,6 +26,12 @@ export const PageTop: React.FC<Props> = ({
     subtitle,
     showBack,
 }) => {
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
     return (
         <div className={styles.pageTop}>
             <nav className={styles.pageTopNav}>
@@ -43,7 +49,12 @@ export const PageTop: React.FC<Props> = ({
                         />
 
                         {item.href ? (
-                            <Link to={item.href}>{item.name}</Link>
+                            <Link
+                                to={item.href}
+                                className={styles.pageTopNameLink}
+                            >
+                                {item.name}
+                            </Link>
                         ) : (
                             <div className={styles.pageTopName}>
                                 {item.name}
@@ -52,6 +63,16 @@ export const PageTop: React.FC<Props> = ({
                     </Fragment>
                 ))}
             </nav>
+
+            {showBack && (
+                <button
+                    onClick={handleGoBack}
+                    className={styles.pageTopBackNav}
+                >
+                    <ArrowIcon className={styles.pageTopIconBack} />
+                    Back
+                </button>
+            )}
 
             <Typography variant="h1">{title}</Typography>
 
