@@ -173,6 +173,7 @@ export const ProductDetailsPage: React.FC = () => {
                         <PriceActions
                             price={product.price}
                             priceFull={product.fullPrice}
+                            product={product}
                         />
 
                         <ProductSpecs specs={specsProduct} />

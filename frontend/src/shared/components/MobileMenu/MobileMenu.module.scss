@@ -3,14 +3,15 @@
 
 .menu {
     pointer-events: none;
+    visibility: hidden;
 
     position: fixed;
     top: $header-height;
     left: 0;
     z-index: 1;
 
-    transform: translateY(-100%);
     opacity: 0;
+    transform: translateY(-12px);
 
     width: 100%;
     height: calc($size-height - $header-height);
@@ -22,7 +23,10 @@
 
     background-color: var(--white);
 
-    transition: all $effectDuration ease;
+    transition:
+        opacity $effectDuration ease,
+        transform $effectDuration ease,
+        visibility 0s linear $effectDuration;
 
     @include on-tablet {
         display: none;
@@ -30,8 +34,10 @@
 
     &Open {
         pointer-events: all;
-        transform: translateY(0);
+        visibility: visible;
         opacity: 1;
+        transform: none;
+        transition-delay: 0s;
     }
 
     &Footer {

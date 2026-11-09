@@ -10,6 +10,43 @@
     transition: transform $effectDuration ease;
 }
 
+.badgeCount {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    z-index: 1;
+
+    min-width: 17px;
+    height: 17px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+    line-height: 1;
+    color: var(--white);
+
+    background-color: #476df4;
+    transition: transform $effectDuration ease;
+
+    @include on-desktop {
+        top: 15px;
+        right: 15px;
+    }
+
+    &Mobile {
+        top: 5px;
+        right: 5px;
+
+        @include on-desktop {
+            display: none;
+        }
+    }
+}
+
 .link {
     position: relative;
 
@@ -20,7 +57,8 @@
     border-left: 1px solid var(--header-border);
 
     &:hover {
-        .icon {
+        .icon,
+        .badgeCount {
             transform: scale(1.1);
         }
     }

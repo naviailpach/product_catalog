@@ -6,6 +6,7 @@ import { Header } from "./shared/components/Header";
 import { MobileMenu } from "./shared/components/MobileMenu";
 
 import "./styles/globals.scss";
+import "./styles/App.scss";
 import { Main } from "./shared/components/Main";
 import { Footer } from "./shared/components/Footer";
 import { useEffect } from "react";
@@ -13,7 +14,7 @@ import { useAppDispatch } from "./app/hooks";
 import { fetchProducts } from "./features/products";
 
 export const App = () => {
-    const { isMenuOpen, setIsMenuOpen, closeMenu } = useMobileMenu();
+    const { isMenuOpen, setIsMenuOpen } = useMobileMenu();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -21,16 +22,16 @@ export const App = () => {
     }, [dispatch]);
 
     return (
-        <>
+        <div className="App">
             <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
-            <MobileMenu isMenuOpen={isMenuOpen} closeMenu={closeMenu} />
+            <MobileMenu isMenuOpen={isMenuOpen} />
 
             <Main>
                 <Outlet />
             </Main>
 
             <Footer />
-        </>
+        </div>
     );
 };

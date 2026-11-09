@@ -7,12 +7,14 @@ import styles from "./HeaderAction.module.scss";
 type Props = {
     to: string;
     Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    count?: number;
     isMobile?: boolean;
 };
 
 export const HeaderAction: React.FC<Props> = ({
     to,
     Icon,
+    count,
     isMobile = false,
 }) => (
     <NavLink
@@ -25,5 +27,15 @@ export const HeaderAction: React.FC<Props> = ({
         }
     >
         <Icon className={styles.icon} />
+
+        {count && count > 0 ? (
+            <span
+                className={classNames(styles.badgeCount, {
+                    [styles.badgeCountMobile]: isMobile,
+                })}
+            >
+                {count}
+            </span>
+        ) : null}
     </NavLink>
 );
