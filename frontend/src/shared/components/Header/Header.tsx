@@ -9,6 +9,7 @@ import { Nav } from "../Nav";
 import { HeaderAction } from "./HeaderAction";
 import Favourite from "@assets/images/icons/favourites.svg?react";
 import Cart from "@assets/images/icons/shopping-cart.svg?react";
+import { useAppSelector } from "../../../app/hooks";
 
 type Props = {
     isMenuOpen: boolean;
@@ -16,6 +17,8 @@ type Props = {
 };
 
 export const Header: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
+    const favourites = useAppSelector((state) => state.favourites.items);
+
     return (
         <header className={styles.header}>
             <div className={styles.headerContainer}>
@@ -39,7 +42,11 @@ export const Header: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
                         )}
                     </button>
 
-                    <HeaderAction to="/favourites" Icon={Favourite} />
+                    <HeaderAction
+                        to="/favourites"
+                        Icon={Favourite}
+                        count={favourites.length}
+                    />
 
                     <HeaderAction to="/cart" Icon={Cart} />
                 </div>

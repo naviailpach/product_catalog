@@ -7,10 +7,9 @@ import { NAV_ITEMS } from "./constants/itemsNav";
 
 type Props = {
     isMobile?: boolean;
-    onNavigate?: () => void;
 };
 
-export const Nav: React.FC<Props> = ({ isMobile = false, onNavigate }) => {
+export const Nav: React.FC<Props> = ({ isMobile = false }) => {
     return (
         <nav
             className={classNames(styles.nav, {
@@ -26,7 +25,6 @@ export const Nav: React.FC<Props> = ({ isMobile = false, onNavigate }) => {
                     <li key={item.to} className={styles.navItem}>
                         <NavLink
                             to={item.to}
-                            onClick={onNavigate}
                             className={({ isActive }) =>
                                 classNames(styles.navLink, {
                                     [styles.isActive]: isActive,
