@@ -18,6 +18,7 @@ type Props = {
 
 export const Header: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
     const favourites = useAppSelector((state) => state.favourites.items);
+    const cart = useAppSelector((state) => state.cart.items);
 
     return (
         <header className={styles.header}>
@@ -48,7 +49,7 @@ export const Header: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
                         count={favourites.length}
                     />
 
-                    <HeaderAction to="/cart" Icon={Cart} />
+                    <HeaderAction to="/cart" Icon={Cart} count={cart.length} />
                 </div>
             </div>
         </header>

@@ -12,6 +12,7 @@ import type { Product } from "../../../types/Product";
 import { API_URL } from "../../utils/config";
 import { getSpecsCard } from "./constants/productSpecs";
 import { useFavourite } from "../../../hooks/useFavourite";
+import { useCart } from "../../../hooks/useCart";
 
 type Props = {
     product: Product;
@@ -27,6 +28,7 @@ export const ProductCard: React.FC<Props> = ({
     const PRODUCT_SPECS = getSpecsCard(product);
 
     const { isFavourite, toggleFavourite } = useFavourite(product);
+    const { isCart, toggleCart } = useCart(product);
 
     return (
         <article className={classNames(styles.card, className)}>
@@ -77,7 +79,9 @@ export const ProductCard: React.FC<Props> = ({
             </div>
 
             <div className={styles.cardButtons}>
-                <Button>Add to cart</Button>
+                <Button isActive={isCart} onClick={toggleCart}>
+                    Add to cart
+                </Button>
 
                 <FavouriteButton
                     isActive={isFavourite}
