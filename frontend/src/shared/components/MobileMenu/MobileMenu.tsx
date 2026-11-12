@@ -14,6 +14,7 @@ type Props = {
 
 export const MobileMenu: React.FC<Props> = ({ isMenuOpen }) => {
     const favourites = useAppSelector((state) => state.favourites.items);
+    const cart = useAppSelector((state) => state.cart.items);
 
     return (
         <div
@@ -31,7 +32,12 @@ export const MobileMenu: React.FC<Props> = ({ isMenuOpen }) => {
                     count={favourites.length}
                 />
 
-                <HeaderAction isMobile to="/cart" Icon={Cart} />
+                <HeaderAction
+                    isMobile
+                    to="/cart"
+                    Icon={Cart}
+                    count={cart.length}
+                />
             </div>
         </div>
     );

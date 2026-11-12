@@ -11,6 +11,7 @@ import { NotFoundPage } from "./components/NotFoundPage";
 import { ProductDetailsPage } from "./components/ProductDetailsPage";
 import { ScrollToTop } from "./shared/components/ScrollToTop";
 import { FavouritesPage } from "./components/FavouritesPage";
+import { CartPage } from "./components/CartPage";
 
 export const Root = () => (
     <Provider store={store}>
@@ -31,6 +32,7 @@ export const Root = () => (
                             element={<ProductDetailsPage />}
                         />
                         <Route path="favourites" element={<FavouritesPage />} />
+                        <Route path="cart" element={<CartPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 </Routes>

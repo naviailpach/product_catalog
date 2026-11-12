@@ -34,7 +34,7 @@
         transition: border-color $effectDuration ease;
 
         &:hover {
-            border-color: var(--primary);
+            border-color: #b4bdc3;
         }
     }
 
@@ -54,5 +54,9 @@
 
     &Active {
         border-color: var(--primary);
+
+        &:hover {
+            border-color: var(--primary);
+        }
     }
 }

@@ -21,27 +21,27 @@ export const FavouritesPage: React.FC = () => {
                 />
             </Reveal>
 
-            {items.length === 0 && (
-                <div className={styles.empty}>
+            {items.length === 0 ? (
+                <Reveal className={styles.empty}>
                     <Typography variant="h2">Not favourites yet</Typography>
 
                     <p className={styles.emptyText}>
                         Click the heart icon next to an item to add it here
                     </p>
-                </div>
+                </Reveal>
+            ) : (
+                <Reveal className={styles.favourites}>
+                    <div className={styles.favouritesList}>
+                        {items.map((item) => (
+                            <ProductCard
+                                key={item.id}
+                                product={item}
+                                className={styles.favouritesCard}
+                            />
+                        ))}
+                    </div>
+                </Reveal>
             )}
-
-            <Reveal>
-                <div className={styles.favourites}>
-                    {items.map((item) => (
-                        <ProductCard
-                            key={item.id}
-                            product={item}
-                            className={styles.favouritesCard}
-                        />
-                    ))}
-                </div>
-            </Reveal>
         </Container>
     );
 };

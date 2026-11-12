@@ -5,6 +5,7 @@ import { Button } from "../../../../shared/ui/Button";
 import { FavouriteButton } from "../../../../shared/ui/FavouriteButton";
 import { useFavourite } from "../../../../hooks/useFavourite";
 import type { Product } from "../../../../types/Product";
+import { useCart } from "../../../../hooks/useCart";
 
 type Props = {
     price: number;
@@ -18,6 +19,7 @@ export const PriceActions: React.FC<Props> = ({
     product,
 }) => {
     const { isFavourite, toggleFavourite } = useFavourite(product);
+    const { isCart, toggleCart } = useCart(product);
 
     return (
         <div className={styles.priceActions}>
@@ -27,7 +29,13 @@ export const PriceActions: React.FC<Props> = ({
             </div>
 
             <div className={styles.buttons}>
-                <Button className={styles.buttonsToCart}>Add to cart</Button>
+                <Button
+                    isActive={isCart}
+                    onClick={toggleCart}
+                    className={styles.buttonsToCart}
+                >
+                    Add to cart
+                </Button>
 
                 <FavouriteButton
                     isActive={isFavourite}

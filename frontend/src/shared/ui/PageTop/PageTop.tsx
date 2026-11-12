@@ -34,35 +34,37 @@ export const PageTop: React.FC<Props> = ({
 
     return (
         <div className={styles.pageTop}>
-            <nav className={styles.pageTopNav}>
-                <Link to={"/"} className={styles.pageTopLink}>
-                    <HomeIcon className={styles.pageTopIcon} />
-                </Link>
+            {breadcrumb && breadcrumb.length > 0 && (
+                <div className={styles.pageTopNav}>
+                    <Link to={"/"} className={styles.pageTopLink}>
+                        <HomeIcon className={styles.pageTopIcon} />
+                    </Link>
 
-                {breadcrumb?.map((item, index) => (
-                    <Fragment key={index}>
-                        <ArrowIcon
-                            className={classNames(
-                                styles.pageTopIcon,
-                                styles.pageTopIconArrow,
+                    {breadcrumb?.map((item, index) => (
+                        <Fragment key={index}>
+                            <ArrowIcon
+                                className={classNames(
+                                    styles.pageTopIcon,
+                                    styles.pageTopIconArrow,
+                                )}
+                            />
+
+                            {item.href ? (
+                                <Link
+                                    to={item.href}
+                                    className={styles.pageTopNameLink}
+                                >
+                                    {item.name}
+                                </Link>
+                            ) : (
+                                <div className={styles.pageTopName}>
+                                    {item.name}
+                                </div>
                             )}
-                        />
-
-                        {item.href ? (
-                            <Link
-                                to={item.href}
-                                className={styles.pageTopNameLink}
-                            >
-                                {item.name}
-                            </Link>
-                        ) : (
-                            <div className={styles.pageTopName}>
-                                {item.name}
-                            </div>
-                        )}
-                    </Fragment>
-                ))}
-            </nav>
+                        </Fragment>
+                    ))}
+                </div>
+            )}
 
             {showBack && (
                 <button
